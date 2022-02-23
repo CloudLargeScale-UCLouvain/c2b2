@@ -10,7 +10,7 @@ We present the design and evaluation of **_c2b2_**, an integrated suite for chao
 ## Repository architecture
 
 The repository is composed of the following directories:
-- [appSimpleAuction/](./appSimpleAunction/): example blockchain application
+- [appSimpleAuction/](./appSimpleAuction/): example blockchain application
 - [caliper/](./caliper/): Caliper Helm chart
 - [minioChart/](./minioChart/): Minio used for experimentations
 - [ourAutomation/](./ourAutomation/): configuration file generator
