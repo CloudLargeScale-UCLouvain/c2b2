@@ -10,10 +10,10 @@ We present the design and evaluation of **_c2b2_**, an integrated suite for chao
 ## Repository architecture
 
 The repository is composed of the following directories:
-- [appSimpleAunction/](./appSimpleAunction): example blockchain application
-- [caliper/](./caliper): Caliper Helm chart
-- [minioChart/](./minioChart): Minio used for experimentations
-- [ourAutomation/](./ourAutomation): configuration file generator
+- [appSimpleAuction/](./appSimpleAunction/): example blockchain application
+- [caliper/](./caliper/): Caliper Helm chart
+- [minioChart/](./minioChart/): Minio used for experimentations
+- [ourAutomation/](./ourAutomation/): configuration file generator
 
 ## Installation
 
@@ -128,7 +128,7 @@ links:
 
 ## Usage
 
-Once the prerequisites are installed, you should set the parameters in the [ourAutomation](./ourAutomation) directory, and execute the [run.sh](./run.sh) file. More details on the placement are available in this file.
+Once the prerequisites are installed, you should set the parameters in the [ourAutomation](./ourAutomation) directory, and execute the [run.sh](./run.sh) file. More details on the required module placements are available in this file.
 
 ## Additional details on DSN experimentations
 
