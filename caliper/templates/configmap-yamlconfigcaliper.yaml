@@ -1,0 +1,11 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "caliper.fullname" . }}--yaml-config
+data:
+  {{- $files := .Files }}
+  {{- range tuple "microBenchMarkconfig.yaml" "caliperNetworkConfig.yaml" "createBid.js" "createOffer.js" "caliper.yaml" "simpleAuction.go" "go.mod" "queryOffer.js" "queryBid.js" "caliperNetworkConfig-carrier.yaml" "caliperNetworkConfig-manufacturer.yaml" "caliperNetworkConfig-buyer.yaml" "carrierConnectionProfile.yaml" "manufacturerConnectionProfile.yaml" "buyerConnectionProfile.yaml" "sellerConnectionProfile.yaml" "caliperNetworkConfig-seller.yaml" "storeConnectionProfile.yaml" "caliperNetworkConfig-store.yaml" "sixConnectionProfile.yaml" "caliperNetworkConfig-six.yaml" "sevenConnectionProfile.yaml" "caliperNetworkConfig-seven.yaml"}}
+  {{ . }}: |-
+    {{ $files.Get . }}
+  {{- end }}

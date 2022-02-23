@@ -1,0 +1,15 @@
+chaincode_name: simpleauction
+chaincode_version: "1"
+chaincode_lang: golang
+chaincode_init_function: init
+chaincode_path: simpleauction/
+initArguments: []
+created: true
+replicaMasterCount: 1
+replicaWorkersCount: 1
+caliperImageRepository: ayhamkassab/caliper
+rateControl:
+  type: fixed-load
+  opts:
+    tps: 20
+    load: 1

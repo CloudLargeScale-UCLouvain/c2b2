@@ -1,0 +1,7 @@
+*ConnectionProfile.yaml
+*ConnectionProfile.json 
+caliperNetworkConfig.yaml 
+*.go
+values.yaml
+test
+appSimpleAuction/certificates/*

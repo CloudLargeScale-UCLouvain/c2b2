@@ -1,0 +1,41 @@
+---
+    rateControl: &rate
+      type: fixed-rate
+      opts:
+        tps: 20
+
+    test:
+      name: simpleauction
+      description: simpleauction benchmark for evaluating create, modify, and query operations.
+      workers:
+        type: local
+        number: 1
+      rounds:
+        - label: create
+          txNumber: 100
+          rateControl: *rate
+          workload:
+            module: createOffer.js
+        - label: queryOffer
+          txNumber: 100
+          rateControl: *rate
+          workload:
+            module: queryOffer.js
+        - label: bids
+          txNumber: 100
+          rateControl: *rate
+          workload:
+            module: createBid.js
+        - label: queryBid
+          txNumber: 100
+          rateControl: *rate
+          workload:
+            module: queryBid.js 
+
+
+    monitors:
+        resource:
+        - module: docker
+          options:
+            interval: 1
+            containers: ['all']

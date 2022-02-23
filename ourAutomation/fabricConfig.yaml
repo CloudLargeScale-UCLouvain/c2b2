@@ -1,0 +1,41 @@
+domain_name: svc.cluster.local
+pathToBAF: /home/ubuntu/c2b2/blockchain-automation-framework
+cloud_provider: minikube
+
+BAFChaincodePath: examples/supplychain-app/fabric/chaincode_rest_server/chaincode/
+
+BAFk8s:
+  context: "cluster.local"
+  config_file: "~/.kube/config"
+
+vault:
+  url: "http://10.10.2.4:30000"
+  root_token: "s.2GHpHvwF2P08YFXfxVaEO7yV"
+
+
+organizations:
+- id: 1
+  name: carrier
+  orderer: supplychain
+  numberOfPeers: 1 #if 0 then endorser should be false 
+  endorser: true #if false then numberOfPeers should be 0 (even if not, the script will count it as 0)
+
+- id: 2
+  name: manufacturer
+  orderer: supplychain
+  numberOfPeers: 1
+  endorser: true
+
+- id: 3
+  name: buyer
+  orderer: supplychain
+  numberOfPeers: 1
+  endorser: true
+
+
+- id: 4
+  name: supplychain
+  orderer: supplychain
+  numberOfPeers: 2
+  endorser: false
+

@@ -1,0 +1,102 @@
+#This is a sample. Values need to be changed for each client
+name: "baf.fabric.supplychain"
+x-type: "hlfv1"
+description: "Connection profile for Supplychain App"
+version: "1.0"
+client:
+  organization: carrier
+  connection:
+    timeout:
+        peer:
+          endorser: "300"
+          eventHub: "300"
+          eventReg: "300"
+        orderer: "300"
+
+channels:
+  allchannel:
+    orderers:
+      - orderer0.supplychain-net
+    peers:
+      peer0.carrier-net:
+        endorsingPeer: true
+        chaincodeQuery: true
+        ledgerQuery: true
+        eventSource: true
+        discover: true
+
+organizations:
+  carrier:
+    mspid: carrierMSP
+    peers:
+      - peer0.carrier-net
+
+orderers:
+  orderer0.supplychain-net:
+    url: grpcs://orderer0.supplychain-net.svc.cluster.local:7050
+    grpcOptions:
+      ssl-target-name-override: grpcs://orderer0.supplychain-net.svc.cluster.local
+      grpc.keepalive_time_ms: 6000
+      request-timeout: 1200000
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIIB+DCCAZ6gAwIBAgIUMDwYRItqdShWJA6hZG7bqtWI3yUwCgYIKoZIzj0EAwIw
+          WjELMAkGA1UEBhMCQ0gxDzANBgNVBAgMBlp1cmljaDEPMA0GA1UEBwwGWnVyaWNo
+          MRAwDgYDVQQKDAdjYXJyaWVyMRcwFQYDVQQDDA5jYS5jYXJyaWVyLW5ldDAeFw0y
+          MTA5MTUxNDUwMjRaFw0yNDA3MDUxNDUwMjRaMFoxCzAJBgNVBAYTAkNIMQ8wDQYD
+          VQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEQMA4GA1UECgwHY2FycmllcjEX
+          MBUGA1UEAwwOY2EuY2Fycmllci1uZXQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
+          AASObwT3gjBTfyycHgoo3vv6PJevoo3i1K05LoZa9kAXIc3x1ojr7yJKTVmXfNb3
+          a7cXRvacuBm3S18qaj00mfByo0IwQDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB
+          /wQEAwIBpjAdBgNVHQ4EFgQU7PaF8f7G7nmLru9FdXE+h64lspkwCgYIKoZIzj0E
+          AwIDSAAwRQIhAO7tJA27ZsY68JUpPjncQxsXcafQtXVwagYSsGU3f7oZAiAlVdH9
+          nwB1a4uTRBmjdeWC0YX+fzsrBW7q5B3qJmbXMw==
+          -----END CERTIFICATE-----
+
+peers:
+  peer0:
+    url: http://peer0.carrier-net.svc.cluster.local:7051
+    grpcOptions:
+      ssl-target-name-override: http://peer0.carrier-net.svc.cluster.local
+      grpc.keepalive_time_ms: 6000
+      request-timeout: 1200000
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIIB+DCCAZ6gAwIBAgIUMDwYRItqdShWJA6hZG7bqtWI3yUwCgYIKoZIzj0EAwIw
+          WjELMAkGA1UEBhMCQ0gxDzANBgNVBAgMBlp1cmljaDEPMA0GA1UEBwwGWnVyaWNo
+          MRAwDgYDVQQKDAdjYXJyaWVyMRcwFQYDVQQDDA5jYS5jYXJyaWVyLW5ldDAeFw0y
+          MTA5MTUxNDUwMjRaFw0yNDA3MDUxNDUwMjRaMFoxCzAJBgNVBAYTAkNIMQ8wDQYD
+          VQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEQMA4GA1UECgwHY2FycmllcjEX
+          MBUGA1UEAwwOY2EuY2Fycmllci1uZXQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
+          AASObwT3gjBTfyycHgoo3vv6PJevoo3i1K05LoZa9kAXIc3x1ojr7yJKTVmXfNb3
+          a7cXRvacuBm3S18qaj00mfByo0IwQDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB
+          /wQEAwIBpjAdBgNVHQ4EFgQU7PaF8f7G7nmLru9FdXE+h64lspkwCgYIKoZIzj0E
+          AwIDSAAwRQIhAO7tJA27ZsY68JUpPjncQxsXcafQtXVwagYSsGU3f7oZAiAlVdH9
+          nwB1a4uTRBmjdeWC0YX+fzsrBW7q5B3qJmbXMw==
+          -----END CERTIFICATE-----
+
+
+certificateAuthorities:
+  ca:
+    url: https://localhost:7070
+    grpcOptions:
+      ssl-target-name-override: https://localhost
+      grpc.keepalive_time_ms: 6000
+      request-timeout: 1200000
+    tlsCACerts:
+      pem: |
+          -----BEGIN CERTIFICATE-----
+          MIIB+DCCAZ6gAwIBAgIUMDwYRItqdShWJA6hZG7bqtWI3yUwCgYIKoZIzj0EAwIw
+          WjELMAkGA1UEBhMCQ0gxDzANBgNVBAgMBlp1cmljaDEPMA0GA1UEBwwGWnVyaWNo
+          MRAwDgYDVQQKDAdjYXJyaWVyMRcwFQYDVQQDDA5jYS5jYXJyaWVyLW5ldDAeFw0y
+          MTA5MTUxNDUwMjRaFw0yNDA3MDUxNDUwMjRaMFoxCzAJBgNVBAYTAkNIMQ8wDQYD
+          VQQIDAZadXJpY2gxDzANBgNVBAcMBlp1cmljaDEQMA4GA1UECgwHY2FycmllcjEX
+          MBUGA1UEAwwOY2EuY2Fycmllci1uZXQwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNC
+          AASObwT3gjBTfyycHgoo3vv6PJevoo3i1K05LoZa9kAXIc3x1ojr7yJKTVmXfNb3
+          a7cXRvacuBm3S18qaj00mfByo0IwQDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB
+          /wQEAwIBpjAdBgNVHQ4EFgQU7PaF8f7G7nmLru9FdXE+h64lspkwCgYIKoZIzj0E
+          AwIDSAAwRQIhAO7tJA27ZsY68JUpPjncQxsXcafQtXVwagYSsGU3f7oZAiAlVdH9
+          nwB1a4uTRBmjdeWC0YX+fzsrBW7q5B3qJmbXMw==
+          -----END CERTIFICATE-----

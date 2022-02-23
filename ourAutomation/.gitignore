@@ -1,0 +1,6 @@
+gitops.yaml
+*ConnectionProfile.yaml
+bafNetwork.yaml
+caliperNetworkConfig.yaml
+file.yaml
+values.yaml

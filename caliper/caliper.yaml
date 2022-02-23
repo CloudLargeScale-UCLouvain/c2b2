@@ -1,0 +1,13 @@
+caliper:
+      fabric:
+        gateway:
+          discovery: true
+          enabled: true
+          localhost: false
+        skipcreatechannel:
+          allchannel: true
+      logging:
+        targets:
+          console:
+            options:
+              level: info
